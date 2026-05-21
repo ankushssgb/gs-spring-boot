@@ -1,4 +1,4 @@
-name: CodeQL Analysis
+name: CodeQL Security Analysis
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
   pull_request:
 
 jobs:
-  analyze:
-    name: Analyze with CodeQL
+  analyze-code-security:
+    name: Perform CodeQL Security Scan
     runs-on: ubuntu-latest
     permissions:
       actions: read

@@ -1,4 +1,4 @@
-name: Reusable Build Caller
+name: Reusable Build Worflow Caller
 
 on:
   push:
@@ -14,6 +14,7 @@ on:
 
 jobs:
   call-reusable:
+  name: Invoke Reusable Build Pipeline
     uses: ./.github/workflows/reusable-build.yml
     with:
       sonar-scan: false

@@ -1,4 +1,4 @@
-name: Reusable Java Build
+name: Reusable Java Maven Build Worflow
 
 on:
   workflow_call:
@@ -13,7 +13,8 @@ on:
         default: false
 
 jobs:
-  build:
+  reusable-maven-build:
+    name: Execute Reusable Java Maven Build
     runs-on: ubuntu-latest
 
     steps:

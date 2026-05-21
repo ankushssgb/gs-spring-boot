@@ -1,5 +1,4 @@
-name: CI Build
-
+name: Continuous Integration Pipeline
 on:
   push:
     branches:
@@ -9,5 +8,6 @@ on:
       - main
 
 jobs:
-  build:
+  ci-build-and-test:
+    name: Build and Validate Spring Boot Application
     uses: spring-guides/getting-started-macros/.github/workflows/build_initial_complete_maven_gradle.yml@main

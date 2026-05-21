@@ -1,4 +1,4 @@
-name: Merge Dependabot PR
+name: Dependabot Auto Merge Pipeline
 
 on:
   pull_request:
@@ -9,7 +9,8 @@ on:
 run-name: Merge Dependabot PR ${{ github.ref_name }}
 
 jobs:
-  merge-dependabot-pr:
+  auto-merge-dependency-updates:
+    name: Automatically Merge Dependabot PRs
     permissions: write-all
     uses: spring-io/spring-github-workflows/.github/workflows/spring-merge-dependabot-pr.yml@v7
     with:
