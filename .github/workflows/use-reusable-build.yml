@@ -12,6 +12,8 @@ on:
       - master
       - 'feature/*'
 
+ workflow_dispatch:
+
 jobs:
   call-reusable:
     name: Invoke Reusable Build Pipeline
