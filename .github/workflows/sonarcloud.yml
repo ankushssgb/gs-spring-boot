@@ -42,10 +42,12 @@ jobs:
           mvn -B -DskipTests clean verify
 
       - name: Run SonarCloud analysis
-        uses: SonarSource/sonarcloud-github-action@v1
-        with:
-          organization: ${{ secrets.SONAR_ORGANIZATION }}
-          token: ${{ secrets.SONAR_TOKEN }}
-          projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
-          projectName: ${{ secrets.SONAR_PROJECT_NAME }}
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          cd complete
+          mvn sonar:sonar \
+            -Dsonar.login=${SONAR_TOKEN} \
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
+            -Dsonar.host.url=https://sonarcloud.io

@@ -1,4 +1,4 @@
-name: CI
+name: CI Pipeline
 
 on:
   push:
@@ -11,7 +11,8 @@ env:
   IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/springboot-demo-app
 
 jobs:
-  build:
+  build-test-analyze-package:
+    name: Build, Test, Analyze, and Package
     runs-on: ubuntu-latest
 
     steps:
@@ -64,7 +65,7 @@ jobs:
           tags: ${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Scan Docker image with Trivy
-        uses: aquasecurity/trivy-action@v2
+        uses: aquasecurity/trivy-action@v0.28.0
         with:
           image-ref: ${{ env.IMAGE_NAME }}:${{ github.sha }}
           format: table

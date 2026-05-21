@@ -14,7 +14,7 @@ on:
 
 jobs:
   call-reusable:
-  name: Invoke Reusable Build Pipeline
+    name: Invoke Reusable Build Pipeline
     uses: ./.github/workflows/reusable-build.yml
     with:
-      sonar-scan: false
+      sonar-scan: true
