@@ -1,0 +1,19 @@
+name: Reusable Build Caller
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - 'feature/*'
+  pull_request:
+    branches:
+      - main
+      - master
+      - 'feature/*'
+
+jobs:
+  call-reusable:
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      sonar-scan: false
