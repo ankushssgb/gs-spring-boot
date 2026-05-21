@@ -44,6 +44,8 @@ jobs:
           mvn -B -DskipTests clean verify
 
       - name: Run SonarCloud analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           cd complete
           mvn sonar:sonar \
