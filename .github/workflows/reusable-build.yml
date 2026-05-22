@@ -28,10 +28,14 @@ jobs:
           java-version: ${{ inputs.java-version }}
           cache: maven
 
-      - name: Build and test
+      - name: Build Application artifact and Run Tests
         run: |
           cd complete
           mvn -B clean verify
+
+      - name: Verify generated JAR artifact
+        run: |
+          ls -lh complete/target
 
       - name: Optional SonarCloud analysis
         if: inputs.sonar-scan == true
